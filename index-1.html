@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0a1a3f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>MS Husaini Enterprises</title>
+<style>
+:root{--bg:#020418;--card:#0d1b3d;--card2:#16305c;--line:#27406f;--txt:#e8efff;--mut:#8ea3cc;--grn:#22c55e;--blu:#2563eb;--red:#ef4444}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Roboto,system-ui,sans-serif;padding-bottom:90px}
+header{position:sticky;top:0;z-index:20;background:linear-gradient(#0a1a3f,#0d1b3d);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+header h1{margin:0;font-size:20px;color:#7aa2ff}
+header small{font-size:12px}
+#langBtn{background:#3a3a4a;color:#fff;border:0;border-radius:20px;padding:10px 14px;font-weight:600}
+main{padding:14px}
+.tab{display:none}.tab.on{display:block}
+.banner{height:150px;border-radius:18px;background:linear-gradient(135deg,#064e3b,#0f766e 50%,#0a1a3f);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;margin-bottom:14px;padding:10px}
+.banner h2{margin:0 0 4px;font-size:22px}
+.pill{background:var(--grn);color:#062b14;font-weight:700;border-radius:20px;padding:6px 14px;font-size:13px;margin-top:8px}
+h3.sec{color:var(--grn);font-size:15px;margin:18px 0 10px}
+.hint{font-size:12px;color:var(--mut);margin:0 0 10px;line-height:1.5}
+.f{position:relative;margin-bottom:12px}
+.f label{position:absolute;top:-8px;left:12px;background:var(--bg);padding:0 6px;font-size:11px;color:var(--mut);z-index:1}
+.f input,.f textarea,.f select{width:100%;background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:16px 12px;font-size:15px;outline:none}
+.f select{background:#0d1b3d}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:#7aa2ff}
+.f input:disabled{opacity:.4}
+.row{display:flex;gap:10px}.row .f{flex:1;min-width:0}
+input[type=checkbox]{width:22px;height:22px;accent-color:#22c55e;flex-shrink:0;margin:0}
+.tick{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px}
+.ticks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.gwh,.gwr{display:grid;grid-template-columns:1fr 58px 58px 100px;gap:6px;align-items:center;margin-bottom:6px}
+.gwh{font-size:11px;color:var(--mut);text-align:center}
+.gwr .gn{font-size:13px}
+.gwr .c{display:flex;justify-content:center}
+.gwr input[type=text]{width:100%;background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:10px 8px;font-size:13px;outline:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
+.chip{white-space:nowrap;border:1px solid var(--line);background:transparent;color:var(--txt);border-radius:10px;padding:9px 12px;font-size:12px}
+.chip:active{background:var(--blu)}
+.dp{background:var(--card2);border-radius:12px;padding:16px;display:flex;justify-content:space-between;margin-bottom:12px;font-weight:600}
+.dp b{color:var(--grn);font-size:18px}
+.photos{display:flex;gap:10px}
+.ph{flex:1;min-width:0;background:#fff;border-radius:12px;color:#0f766e;text-align:center;padding:8px;font-size:12px;font-weight:700;min-height:160px;display:flex;flex-direction:column;justify-content:space-between}
+.ph .box{flex:1;display:flex;align-items:center;justify-content:center;color:#999;font-weight:400;overflow:hidden;margin:6px 0;border-radius:8px}
+.ph img{width:100%;height:90px;object-fit:cover}
+.ph .b{display:flex;justify-content:space-around;align-items:center}
+.pb{position:relative;display:inline-block;overflow:hidden;font-size:22px;padding:4px 9px;cursor:pointer}
+.pb input{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;font-size:100px;cursor:pointer}
+.btn{width:100%;border:0;border-radius:14px;padding:16px;font-size:15px;font-weight:700;color:#fff;background:var(--blu);margin-top:8px}
+.btn.g{background:var(--grn);color:#052e16}.btn.o{background:transparent;border:1px solid #7aa2ff;color:#7aa2ff}.btn.r{background:var(--red)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px}
+.card h4{margin:0 0 10px;color:var(--grn)}
+.stats{display:flex;background:var(--card2);border-radius:14px;padding:14px 6px;margin:12px 0;text-align:center}
+.stats div{flex:1;font-size:11px;color:var(--mut)}.stats b{display:block;font-size:15px;margin-top:6px;color:#7aa2ff}
+.rec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.rec .top{display:flex;gap:12px;align-items:flex-start}
+.av{width:44px;height:44px;border-radius:12px;background:#d1fae5;color:#047857;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rec .nm{font-weight:700;font-size:16px}.rec .md{color:var(--grn);font-size:13px}
+.rec .dt{margin-left:auto;font-size:12px;color:var(--mut)}
+.rec .in{background:#fff;color:#111;border-radius:10px;padding:10px;margin-top:10px;font-size:13px;line-height:1.7}
+.rec .act{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-top:10px}
+.rec .act button{border:0;border-radius:10px;padding:8px 11px;font-weight:600;background:var(--card2);color:var(--txt);font-size:13px}
+.own{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.own:last-child{border:0}
+.own .av{background:var(--grn);color:#fff;border-radius:50%}
+.own .n{flex:1}.own .n b{display:block}
+.own a{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;background:#1d3f8f}
+.own a.w{background:#14532d}
+nav{position:fixed;bottom:0;left:0;right:0;background:#0d1b3d;display:flex;border-top:1px solid var(--line);z-index:30;padding-bottom:6px}
+nav button{flex:1;background:none;border:0;color:var(--txt);padding:8px 1px;font-size:10.5px}
+nav button span{display:block;font-size:20px;border-radius:16px;padding:2px 0;margin:0 4px}
+nav button i{font-style:normal}
+nav button.on span{background:var(--blu)}
+nav button.on{color:#7aa2ff}
+#slide{display:none;position:fixed;inset:0;background:#fff;color:#000;z-index:100;overflow:auto;padding:12px}
+.slip{max-width:640px;margin:auto;border:2px solid #0f766e;padding:14px;font-size:14px}
+.slip h2{text-align:center;margin:0;color:#0f766e}.slip p.c{text-align:center;margin:2px 0 8px;font-size:12px}
+.slip h4{margin:14px 0 0;color:#0f766e}
+.slip table{width:100%;border-collapse:collapse;margin-top:8px}
+.slip td,.slip th{border:1px solid #777;padding:6px 7px;height:32px;vertical-align:middle}
+.slip th{background:#e6f7f4;font-size:12px}
+.slip td.k{background:#f0fdfa;width:38%;font-weight:600}
+.slip td.ck{text-align:center;font-size:18px}
+.slip .ims{display:flex;gap:6px;margin-top:10px}.slip .ims img{width:33%;height:110px;object-fit:cover;border:1px solid #bbb}
+.slip .sg{display:flex;justify-content:space-between;margin-top:40px;font-size:12px}
+.slip .ft{margin-top:14px;font-size:10px}
+.nop{max-width:640px;margin:12px auto;display:flex;gap:8px}
+.nop button{flex:1;padding:14px;border:0;border-radius:10px;font-weight:700;background:#0f766e;color:#fff}
+@page{margin:10mm}
+@media print{.nop{display:none}body *{visibility:hidden}#slide,#slide *{visibility:visible}#slide{position:absolute;left:0;top:0;width:100%;padding:0;overflow:visible}tr{page-break-inside:avoid}}
+#toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#111;border:1px solid var(--grn);padding:12px 18px;border-radius:12px;z-index:200;display:none;max-width:90%;text-align:center}
+.foot{text-align:center;color:var(--mut);font-size:11px;margin:20px 0}
+</style>
+</head>
+<body>
+<header>
+  <div><h1 class="shop-title"></h1><small class="own-names"></small></div>
+  <button id="langBtn" onclick="toggleLang()" data-t="langBtn"></button>
+</header>
+
+<main>
+<!-- ============ TAB 1: NEW BILL ============ -->
+<section id="t1" class="tab on">
+  <div class="banner"><h2 class="shop-up"></h2><div style="font-size:12px" class="own-names"></div><div style="font-size:12px;margin-top:4px" class="own-phones"></div><div class="pill">⚡ 100% Electric EV Mobility Dealership</div></div>
+  <div class="hint" data-t="optHint"></div>
+  <input type="hidden" id="editId">
+
+  <h3 class="sec" data-t="s1"></h3>
+  <div class="f"><label data-t="lName"></label><input id="cname" data-p="lName"></div>
+  <div class="f"><label data-t="lFather"></label><input id="cfather" data-p="lFather"></div>
+  <div class="row">
+    <div class="f"><label data-t="lPhone"></label><input id="cphone" type="tel" maxlength="10" data-p="lPhone"></div>
+    <div class="f"><label data-t="lAadhaar"></label><input id="caadhaar" inputmode="numeric" maxlength="14" data-p="lAadhaar"></div>
+  </div>
+
+  <h3 class="sec" data-t="s2"></h3>
+  <div class="f"><label data-t="lModel"></label><input id="cmodel" data-p="lModel"></div>
+  <div style="font-size:12px;color:var(--mut);margin-bottom:6px" data-t="popModels"></div>
+  <div class="chips" id="modelChips"></div>
+  <div class="row">
+    <div class="f"><label data-t="lVeh"></label><input id="cveh" data-p="lVeh"></div>
+    <div class="f"><label data-t="lDeliv"></label><input id="cdate" type="date"></div>
+  </div>
+  <label class="tick" style="margin-bottom:12px"><input type="checkbox" id="cdateblank" onchange="dateTick('cdateblank','cdate')"><span data-t="blankDate"></span></label>
+  <div class="f"><label data-t="lChassis"></label><input id="cchassis" data-p="lChassis"></div>
+
+  <h3 class="sec" data-t="s3"></h3>
+  <div class="f"><label data-t="lBat"></label><input id="cbat" data-p="lBat"></div>
+  <div style="font-size:12px;color:var(--mut);margin-bottom:6px" data-t="popBats"></div>
+  <div class="chips" id="batChips"></div>
+  <div class="f"><label data-t="lCharger"></label><input id="ccharger" data-p="lCharger"></div>
+
+  <h3 class="sec" data-t="sGW"></h3>
+  <div id="gwBox"></div>
+
+  <h3 class="sec" data-t="sPay"></h3>
+  <div class="ticks" id="payBox"></div>
+
+  <h3 class="sec" data-t="sPrice"></h3>
+  <div class="row">
+    <div class="f"><label data-t="lTotal"></label><input id="ctotal" type="number" inputmode="numeric" data-p="lTotal" oninput="calc()"></div>
+    <div class="f"><label data-t="lFin"></label><input id="cfin" type="number" inputmode="numeric" data-p="lFin" oninput="calc()"></div>
+  </div>
+  <div class="dp"><span data-t="lDp"></span><b id="cdp">₹ 0.00</b></div>
+  <div class="row">
+    <div class="f"><label data-t="lEmiN"></label><input id="cemin" type="number" inputmode="numeric" placeholder="24" oninput="calc()"></div>
+    <div class="f"><label data-t="lEmi"></label><input id="cemi" type="number" inputmode="numeric" placeholder="5600"></div>
+  </div>
+  <div class="f"><label data-t="lAgency"></label><input id="cagency" data-p="lAgency"></div>
+
+  <h3 class="sec" data-t="sPhoto"></h3>
+  <div class="photos" id="photoBox"></div>
+
+  <button class="btn g" onclick="saveBill()" data-t="btnSave"></button>
+  <button class="btn o" onclick="showHTML(slipHTML({gw:[],pay:[],photos:{}}))" data-t="btnBlank"></button>
+  <button class="btn o" onclick="resetForm()" data-t="btnReset"></button>
+</section>
+
+<!-- ============ TAB 2: RECORDS ============ -->
+<section id="t2" class="tab">
+  <div class="f" style="margin-top:6px"><input id="q" oninput="renderRecs()" data-p="qPh"></div>
+  <div class="stats"><div data-t="stCnt"></div><div data-t="stTot"></div><div data-t="stFin"></div></div>
+  <div class="stats" style="margin-top:-6px"><div><b id="sCnt">0 EV</b></div><div><b id="sTot">₹0</b></div><div><b id="sFin">₹0</b></div></div>
+  <div id="recList"></div>
+</section>
+
+<!-- ============ TAB 3: TEMP KIST SLIP ============ -->
+<section id="t3" class="tab">
+  <div class="card" style="background:#1e3a8a"><b data-t="kTitle"></b><br><span style="font-size:13px" data-t="kInfo"></span></div>
+  <div class="f"><label data-t="kFrom"></label><select id="kSel" onchange="kFill()"></select></div>
+
+  <div class="f"><label data-t="lDate"></label><input id="kdate" type="date"></div>
+  <label class="tick" style="margin-bottom:12px"><input type="checkbox" id="kdateblank" onchange="dateTick('kdateblank','kdate')"><span data-t="blankDate"></span></label>
+
+  <div class="f"><label data-t="lName"></label><input id="kname" data-p="lName"></div>
+  <div class="f"><label data-t="lFather"></label><input id="kfather" data-p="lFather"></div>
+  <div class="row">
+    <div class="f"><label data-t="lPhone"></label><input id="kphone" type="tel" maxlength="10" data-p="lPhone"></div>
+    <div class="f"><label data-t="lVeh"></label><input id="kveh" data-p="lVeh"></div>
+  </div>
+  <div class="f"><label data-t="lModel"></label><input id="kmodel" data-p="lModel"></div>
+
+  <h3 class="sec" data-t="sPay"></h3>
+  <div class="ticks" id="kPayBox"></div>
+
+  <h3 class="sec" data-t="sPrice"></h3>
+  <div class="row">
+    <div class="f"><label data-t="lTotal"></label><input id="ktotal" type="number" inputmode="numeric" data-p="lTotal" oninput="kcalc()"></div>
+    <div class="f"><label data-t="lFin"></label><input id="kfin" type="number" inputmode="numeric" data-p="lFin" oninput="kcalc()"></div>
+  </div>
+  <div class="dp"><span data-t="lDp"></span><b id="kdp">₹ 0.00</b></div>
+  <div class="row">
+    <div class="f"><label data-t="lEmiN"></label><input id="kemin" type="number" inputmode="numeric" placeholder="12" oninput="kcalc()"></div>
+    <div class="f"><label data-t="lEmi"></label><input id="kemi" type="number" inputmode="numeric" placeholder="5600"></div>
+  </div>
+
+  <h3 class="sec" data-t="kTableT"></h3>
+  <div class="row">
+    <div class="f"><label data-t="kRows"></label><input id="krows" type="number" inputmode="numeric" placeholder="12"></div>
+    <div class="f"><label data-t="kFirst"></label><input id="kfirst" type="date"></div>
+  </div>
+  <label class="tick" style="margin-bottom:8px"><input type="checkbox" id="kbd" checked><span data-t="kBlankDate"></span></label>
+  <label class="tick" style="margin-bottom:12px"><input type="checkbox" id="kba"><span data-t="kBlankAmt"></span></label>
+  <div class="f"><label data-t="kRemark"></label><input id="kremark" data-p="kRemark"></div>
+
+  <button class="btn g" onclick="kMake()" data-t="kMake"></button>
+  <button class="btn o" onclick="kBlank()" data-t="kBlank"></button>
+  <button class="btn o" onclick="kReset()" data-t="btnReset"></button>
+</section>
+
+<!-- ============ TAB 4: SYNC ============ -->
+<section id="t4" class="tab">
+  <div class="card" style="background:#1e3a8a"><b data-t="syTitle"></b><br><span style="font-size:13px" data-t="syDesc"></span></div>
+  <div class="card"><h4 data-t="sy1T"></h4><div style="font-size:13px" data-t="sy1D"></div><button class="btn g" onclick="exportData()" data-t="sy1B"></button></div>
+  <div class="card"><h4 data-t="sy2T"></h4><div style="font-size:13px" data-t="sy2D"></div><input type="file" id="impFile" accept=".json,application/json" hidden><button class="btn o" onclick="document.getElementById('impFile').click()" data-t="sy2B"></button></div>
+  <div class="card"><h4 data-t="sy3T"></h4><div style="font-size:13px" data-t="sy3D"></div>
+    <div class="f" style="margin-top:14px"><input id="gurl" placeholder="Google Apps Script Web App URL"></div>
+    <button class="btn" onclick="cloudSync()" data-t="sy3B"></button>
+    <button class="btn o" onclick="copyScript()" data-t="sy3C"></button></div>
+  <div class="card" style="background:var(--card2)"><h4 data-t="syStepsT"></h4><div style="font-size:13px;line-height:1.8" data-t="syStepsD"></div></div>
+</section>
+
+<!-- ============ TAB 5: AGENCY ============ -->
+<section id="t5" class="tab">
+  <div class="banner"><h2 class="shop-up"></h2><div style="font-size:13px" data-t="sub"></div><div class="pill">⚡ 100% Electric EV Mobility Dealership</div></div>
+  <div class="card"><h4 data-t="agOwners"></h4>
+    <div id="ownList"></div>
+  </div>
+  <div class="card"><h4 data-t="stT"></h4><div class="hint" data-t="stD"></div>
+    <div class="f"><label data-t="fShop"></label><input id="ag_shop" data-p="fShop"></div>
+    <div class="f"><label data-t="fShopHi"></label><input id="ag_shopHi" data-p="fShopHi"></div>
+    <div class="row"><div class="f"><label data-t="fO1N"></label><input id="ag_o1n" data-p="fO1N"></div><div class="f"><label data-t="fO1P"></label><input id="ag_o1p" type="tel" maxlength="15" data-p="fO1P"></div></div>
+    <div class="row"><div class="f"><label data-t="fO2N"></label><input id="ag_o2n" data-p="fO2N"></div><div class="f"><label data-t="fO2P"></label><input id="ag_o2p" type="tel" maxlength="15" data-p="fO2P"></div></div>
+    <button class="btn g" onclick="saveSettings()" data-t="stSave"></button>
+    <button class="btn o" onclick="resetSettings()" data-t="stDef"></button></div>
+  <div class="card"><h4 data-t="agMgmt"></h4><div style="line-height:1.7;font-size:14px" data-t="agList"></div></div>
+</section>
+</main>
+
+<div id="slide"></div>
+<div id="toast"></div>
+
+<nav>
+  <button class="on" onclick="go(1)"><span>🧾</span><i data-t="n1"></i></button>
+  <button onclick="go(2)"><span>👥</span><i data-t="n2"></i></button>
+  <button onclick="go(3)"><span>📝</span><i data-t="n3"></i></button>
+  <button onclick="go(4)"><span>🔁</span><i data-t="n4"></i></button>
+  <button onclick="go(5)"><span>🏢</span><i data-t="n5"></i></button>
+</nav>
+
+<script>
+/* ================= helpers & state ================= */
+var $=function(i){return document.getElementById(i)};
+var LS='msh_records_v1', recs=[], lang=localStorage.getItem('msh_lang')||'hi', photos={cust:'',veh:'',bat:''};
+var MODELS=['Mayuri Deluxe (सवारी)','YC Yatri Super (ई-रिक्शा)','Saarthi Star (पैसेंजर)','Loader E-Cart (माल)'];
+var BATS=['Eastman 4x130Ah Heavy Duty (12 Month Guarantee)','Lithium-ion 60V (3 Year Guarantee)','Exide 4x120Ah (18 Month Guarantee)'];
+var GW=[['bat','gwBat'],['motor','gwMotor'],['ctrl','gwCtrl'],['chg','gwChg'],['body','gwBody'],['tyre','gwTyre'],['other','gwOther']];
+var PAYS=[['cash','payCash'],['fin','payFin'],['other','payOther']];
+var SK='msh_settings_v1';
+var DEF={shop:'MS Husaini Enterprises',shopHi:'मेसर्स हुसैनी एंटरप्राइजेज',o1n:'Mohammad Anees',o1p:'7668732106',o2n:'Mohammad Suhail',o2p:'7906599049'};
+var S=(function(){try{return Object.assign({},DEF,JSON.parse(localStorage.getItem(SK)||'{}'))}catch(e){return Object.assign({},DEF)}})();
+
+/* ================= translations [hindi, english] ================= */
+var D={
+title:['मेसर्स हुसैनी एंटरप्राइजेज','MS Husaini Enterprises'],
+langBtn:['🌐 English','🌐 हिंदी'],
+n1:['नया बिल','New Bill'],n2:['रिकॉर्ड','Records'],n3:['किस्त पर्ची','Kist Slip'],n4:['फ़ोन सिंक','Phone Sync'],n5:['एजेंसी','Agency'],
+sub:['ऑथराइज्ड ई-रिक्शा एवं इलेक्ट्रिक ईवी शोरूम','Authorized E-Rickshaw & Electric EV Showroom'],
+optHint:['सभी खाने वैकल्पिक हैं — जो खाना खाली छोड़ेंगे वह पर्ची पर खाली रहेगा, उसे बाद में पेन से भर सकते हैं।',"All fields are optional — any field left empty stays blank on the slip so you can fill it with a pen later."],
+s1:['ग्राहक की जानकारी','Customer Information'],
+lName:['ग्राहक का नाम','Customer Name'],
+lFather:['पिता का नाम',"Father's Name"],
+lPhone:['मोबाइल नंबर','Mobile No'],
+lAadhaar:['आधार कार्ड नंबर','Aadhaar No'],
+s2:['ई-रिक्शा विवरण','E-Rickshaw & EV Details'],
+lModel:['कौनसा ई-रिक्शा है (मॉडल)','E-Rickshaw Model'],
+popModels:['लोकप्रिय ई-रिक्शा मॉडल:','Popular E-Rickshaw Models:'],
+lVeh:['गाड़ी / अस्थायी नंबर','Vehicle / Temp No'],
+lDeliv:['डिलीवरी तारीख','Delivery Date'],
+lDate:['तारीख','Date'],
+blankDate:['तारीख खाली रखें (पेन से लिखूँगा)','Keep date blank (I will write by pen)'],
+lChassis:['चेचिस एवं मोटर नंबर','Chassis & Motor No'],
+s3:['बैटरी एवं चार्जर','Battery & Charger'],
+lBat:['बैटरी विवरण एवं गारंटी','Battery Details & Guarantee'],
+popBats:['लोकप्रिय बैटरी प्रीसेट:','Popular Battery Presets:'],
+lCharger:['ईवी चार्जर विवरण','EV Charger'],
+sGW:['गारंटी एवं वारंटी (किस-किस चीज़ की)','Guarantee & Warranty (which parts)'],
+gwPart:['पार्ट','Part'],gwG:['गारंटी','Guarantee'],gwW:['वारंटी','Warranty'],gwP:['अवधि','Period'],
+gwBat:['बैटरी','Battery'],gwMotor:['मोटर','Motor'],gwCtrl:['कंट्रोलर','Controller'],gwChg:['चार्जर','Charger'],gwBody:['चेचिस / बॉडी','Chassis / Body'],gwTyre:['टायर','Tyres'],gwOther:['अन्य','Other'],
+gwPeriodPh:['जैसे 12 महीने','e.g. 12 months'],
+gwOtherPh:['अन्य पार्ट का नाम','Other part name'],
+sPay:['भुगतान का प्रकार (टिक करें)','Payment Type (tick)'],
+payCash:['नकद (Cash)','Cash'],payFin:['फाइनेंस (Finance)','Finance'],payOther:['नकद नहीं (Not Cash)','Not Cash'],
+sPrice:['कीमत एवं किस्त विवरण','Pricing & Finance'],
+lTotal:['कुल कीमत ₹','Total Price ₹'],
+lFin:['फाइनेंस राशि ₹','Finance Amount ₹'],
+lDp:['💵 डाउन पेमेंट (बचा हुआ ₹)','💵 Down Payment (Balance ₹)'],
+lEmiN:['कितनी किस्त (संख्या)','No. of Kist'],
+lEmi:['महीने की किस्त ₹','Monthly Kist ₹'],
+lAgency:['कहाँ से लिया है (एजेंसी / शोरूम)','Purchased From (Agency / Showroom)'],
+sPhoto:['फ़ोटो एवं गारंटी कार्ड','Photos & Guarantee Cards'],
+phCust:['ग्राहक','Customer'],phVeh:['गाड़ी कार्ड','Vehicle Card'],phBat:['बैटरी कार्ड','Battery Card'],noPhoto:['फ़ोटो नहीं','No Photo'],
+btnSave:['🛺 1-क्लिक में बिल बनाएं और सेव करें','🛺 Create Bill & Save in 1 Click'],
+btnBlank:['🖨️ खाली पर्ची (पेन से भरने के लिए)','🖨️ Blank Slip (fill by pen)'],
+btnReset:['🔄 फॉर्म खाली करें','🔄 Clear Form'],
+qPh:['🔍 नाम, पिता, फ़ोन, आधार, चेचिस या मॉडल से खोजें…','🔍 Search name, father, phone, Aadhaar, chassis or model…'],
+stCnt:['कुल ई-रिक्शा डिलीवरी','Total E-Rickshaws'],stTot:['कुल बिक्री राशि','Total Sales'],stFin:['कुल फाइनेंस राशि','Total Finance'],
+noRec:['कोई रिकॉर्ड नहीं मिला','No records found'],
+rShare:['➤ शेयर','➤ Share'],rSlip:['🧾 पर्ची','🧾 Slip'],rKist:['📝 किस्त पर्ची','📝 Kist Slip'],rEdit:['✏️ खोलें','✏️ Edit'],rDel:['🗑️','🗑️'],
+delAsk:['यह रिकॉर्ड हमेशा के लिए हटाएं?','Delete this record permanently?'],
+kTitle:['📝 अस्थायी किस्त पर्ची','📝 Temporary Kist Slip'],
+kInfo:['यहाँ से अलग किस्त की पर्ची बनाएं। तारीख / नाम के खाने खाली छोड़ सकते हैं, बाद में पेन से लिखें।','Make a separate kist slip here. Date / name columns can be left blank and written by pen later.'],
+kFrom:['ग्राहक रिकॉर्ड से भरें (वैकल्पिक)','Fill from customer record (optional)'],
+kPick:['— चुनें —','— Select —'],
+kTableT:['किस्त तालिका (पर्ची पर)','Kist Table (on slip)'],
+kRows:['किस्त की लाइनें','Number of rows'],
+kFirst:['पहली किस्त की तारीख','First Kist Date'],
+kBlankDate:['तारीख वाला कॉलम खाली रखें (पेन के लिए)','Keep Date column blank (for pen)'],
+kBlankAmt:['राशि वाला कॉलम खाली रखें','Keep Amount column blank'],
+kRemark:['टिप्पणी / नोट','Remark / Note'],
+kMake:['🧾 किस्त पर्ची बनाएं / प्रिंट','🧾 Create / Print Kist Slip'],
+kBlank:['🖨️ खाली किस्त पर्ची (पेन से भरने के लिए)','🖨️ Blank Kist Slip (fill by pen)'],
+syTitle:['🔄 दूसरे फ़ोन में सिंक','🔄 Sync to Other Phone'],
+syDesc:['दोनों मोबाइल में पूरा डेटा एक क्लिक में ट्रांसफर और सिंक हो जाता है।','Full data can be transferred and synced between both phones in one tap.'],
+sy1T:['तरीका 1: दूसरे फ़ोन पर डेटा भेजें (Export)','Method 1: Send data to other phone (Export)'],
+sy1D:['इस मोबाइल से सभी ग्राहकों का डेटा व्हाट्सएप से दूसरे मोबाइल को भेजें।','Send all customer data from this phone to the other phone via WhatsApp.'],
+sy1B:['📤 दूसरे मोबाइल के लिए डेटा भेजें (Export)','📤 Send Data to Other Phone (Export)'],
+sy2T:['तरीका 2: दूसरे फ़ोन से डेटा प्राप्त करें (Import)','Method 2: Receive data from other phone (Import)'],
+sy2D:['व्हाट्सएप या फ़ाइल से प्राप्त बैकअप यहाँ से चुनें। सभी रिकॉर्ड्स बिना डुप्लिकेट हुए अपने आप जुड़ जाएंगे।','Choose the backup file received by WhatsApp. Records merge automatically without duplicates.'],
+sy2B:['📥 दूसरे मोबाइल से डेटा लोड करें (Import)','📥 Load Data from Other Phone (Import)'],
+sy3T:['तरीका 3: Google Sheets / Apps Script लाइव सिंक (Cloud)','Method 3: Google Sheets / Apps Script Live Sync (Cloud)'],
+sy3D:['यदि आपने Google Apps Script Web App लिंक बनाया है तो उसे यहाँ डालें। दोनों मोबाइल एक ही गूगल शीट से सिंक रहेंगे।','If you have a Google Apps Script Web App link, paste it here. Both phones stay synced with one Google Sheet.'],
+sy3B:['☁️ गूगल शीट से लाइव सिंक करें','☁️ Live Sync with Google Sheet'],
+sy3C:['📋 Apps Script का कोड कॉपी करें','📋 Copy Apps Script Code'],
+syStepsT:['📋 दोनों मोबाइल में उपयोग के आसान 3 स्टेप्स:','📋 Easy 3 steps for both phones:'],
+syStepsD:['1. जब भी पहले फ़ोन में नया बिल बनेगा, डेटा उसी फ़ोन में सुरक्षित रहेगा।<br>2. दिन के अंत में Export बटन दबाकर फ़ाइल व्हाट्सएप पर दूसरे फ़ोन वाले को भेज दें।<br>3. दूसरे फ़ोन में Import बटन दबाकर वह फ़ाइल चुनें, तो सभी ग्राहकों का डेटा और फ़ोटो वहाँ आ जाएंगे।','1. Whenever a bill is made on the first phone, the data stays safe on that phone.<br>2. At the end of the day press Export and send the file on WhatsApp to the other phone.<br>3. On the other phone press Import and select that file; all customers, kist and photos appear there.'],
+agOwners:['एजेंसी मालिक एवं संपर्क','Agency Owners & Contact Details'],
+agMgmt:['ई-रिक्शा एजेंसी मैनेजमेंट','E-Rickshaw Agency Management'],
+agList:['<b style="color:#22c55e">🛺 1-क्लिक ई-रिक्शा बिल एवं डिलीवरी पर्ची</b><br>चेचिस, मोटर, कीमत, डाउन पेमेंट और किस्त के साथ तुरंत पर्ची।<br><br><b style="color:#22c55e">📝 अस्थायी किस्त पर्ची</b><br>अलग पेज से किस्त पर्ची; तारीख / नाम के खाने खाली छोड़कर पेन से भरें।<br><br><b style="color:#22c55e">🛡️ गारंटी एवं वारंटी</b><br>बैटरी, मोटर, कंट्रोलर आदि हर पार्ट के आगे टिक और अवधि।<br><br><b style="color:#22c55e">📱 दोनों मोबाइल में डेटा सिंक</b><br>दोनों मालिक एक टैप में रिकॉर्ड शेयर और सिंक कर सकते हैं।<br><br><b style="color:#22c55e">🔍 डीप सर्च</b><br>नाम, पिता का नाम, फ़ोन, आधार, चेचिस या गाड़ी नंबर से तुरंत खोजें।<br><br><b style="color:#22c55e">🌐 हिंदी ⇄ English</b><br>एक टैप में पूरी ऐप की भाषा बदलें।','<b style="color:#22c55e">🛺 1-Click E-Rickshaw Bill & Delivery Slips</b><br>Instant slips with chassis, motor, price, down payment and kist.<br><br><b style="color:#22c55e">📝 Temporary Kist Slip</b><br>Separate page for kist slips; leave date / name columns blank and fill by pen.<br><br><b style="color:#22c55e">🛡️ Guarantee & Warranty</b><br>Tick and period for every part: battery, motor, controller and more.<br><br><b style="color:#22c55e">📱 Dual Mobile Data Sync</b><br>Both owners can share and sync records in one tap.<br><br><b style="color:#22c55e">🔍 Deep Search</b><br>Search by name, father name, phone, Aadhaar, chassis or vehicle number.<br><br><b style="color:#22c55e">🌐 Hindi ⇄ English</b><br>Switch the whole app language in one tap.'],
+sTitle:['ई-रिक्शा डिलीवरी पर्ची','E-RICKSHAW DELIVERY SLIP'],
+kSlipTitle:['अस्थायी किस्त पर्ची','TEMPORARY KIST SLIP'],
+sGWT:['गारंटी एवं वारंटी','Guarantee & Warranty'],
+sDate:['तारीख','Date'],sCust:['ग्राहक का नाम','Customer'],sFather:['पिता का नाम',"Father's Name"],sPhone:['मोबाइल','Mobile'],sAadhaar:['आधार','Aadhaar'],
+sModel:['ई-रिक्शा मॉडल','E-Rickshaw Model'],sVeh:['गाड़ी / अस्थायी नंबर','Vehicle / Temp No'],sChassis:['चेचिस एवं मोटर नं','Chassis & Motor No'],
+sBat:['बैटरी एवं गारंटी','Battery & Guarantee'],sCharger:['चार्जर','Charger'],sPayT:['भुगतान प्रकार','Payment Type'],
+sTotal:['कुल कीमत','Total Price'],sFinance:['फाइनेंस','Finance'],sDown:['डाउन पेमेंट','Down Payment'],sKist:['किस्त','Kist'],sAgency:['एजेंसी / शोरूम','Agency / Showroom'],
+sMonth:['प्रति माह','per month'],
+sSignCust:['ग्राहक के हस्ताक्षर','Customer Signature'],sSignShop:['MS Husaini Enterprises','MS Husaini Enterprises'],
+kNo:['क्र.','No.'],kDateC:['तारीख','Date'],kNameC:['नाम','Name'],kAmtC:['राशि ₹','Amount ₹'],kSignC:['हस्ताक्षर','Sign'],
+kRem:['टिप्पणी','Remark'],kPaid:['कुल जमा राशि ₹','Total Paid ₹'],kBal:['बाकी राशि ₹','Balance ₹'],
+bPrint:['🖨️ प्रिंट / PDF','🖨️ Print / PDF'],bClose:['✖ बंद करें','✖ Close'],
+tSaved:['✅ बिल सेव हो गया','✅ Bill saved'],
+tNeedSome:['कम से कम नाम, फ़ोन, मॉडल, गाड़ी नंबर या कीमत में से कुछ भरें (या खाली पर्ची बटन दबाएं)','Fill at least name, phone, model, vehicle no or price (or use the Blank Slip button)'],
+tStoreFull:['⚠️ फ़ोन की स्टोरेज भर गई — पुराना डेटा Export करके हटाएं','⚠️ Phone storage full — Export and remove old data'],
+tPhotoErr:['❌ फ़ोटो नहीं जुड़ी — दूसरी फ़ोटो चुनें (JPG/PNG)','❌ Could not add photo — choose another (JPG/PNG)'],
+tNoData:['अभी कोई डेटा नहीं है','No data yet'],
+tFileDl:['फ़ाइल डाउनलोड हो गई — WhatsApp से भेजें','File downloaded — send it on WhatsApp'],
+tBadFile:['❌ गलत फ़ाइल','❌ Invalid file'],
+tCopied:['📋 कोड कॉपी हो गया','📋 Code copied'],
+tCopy:['कॉपी करें:','Copy:'],
+tSyncing:['⏳ सिंक हो रहा है...','⏳ Syncing...'],
+tSyncOk:['✅ सिंक पूरा: ','✅ Sync done: '],
+tSyncFail:['❌ सिंक फेल — URL / इंटरनेट जाँचें','❌ Sync failed — check URL / internet'],
+tBadUrl:['सही Apps Script URL डालें','Enter a valid Apps Script URL'],
+tNew:[' नए, ',' new, '],tUpd:[' अपडेट',' updated'],
+shMsg:['ई-रिक्शा डिलीवरी पर्ची','E-Rickshaw Delivery Slip'],
+stT:['✏️ एजेंसी / मालिक की जानकारी बदलें','✏️ Edit Agency / Owner Details'],
+stD:['यहाँ बदला हुआ नाम और नंबर हर बिल, पर्ची और स्क्रीन पर अपने आप आ जाएगा। (हर फ़ोन में अलग से सेव करें)','Changed names and numbers appear automatically on every bill, slip and screen. (Save separately on each phone)'],
+fShop:['एजेंसी का नाम (English)','Agency Name (English)'],
+fShopHi:['एजेंसी का नाम (हिंदी)','Agency Name (Hindi)'],
+fO1N:['मालिक 1 का नाम','Owner 1 Name'],fO1P:['मालिक 1 का मोबाइल','Owner 1 Mobile'],
+fO2N:['मालिक 2 का नाम','Owner 2 Name'],fO2P:['मालिक 2 का मोबाइल','Owner 2 Mobile'],
+stSave:['💾 सेव करें','💾 Save'],stDef:['↩️ पहले जैसा करें','↩️ Reset to default'],
+stSaved:['✅ एजेंसी की जानकारी सेव हो गई','✅ Agency details saved'],
+mMonth:['महीना','month']
+};
+function t(k){var v=D[k];return v?v[lang==='hi'?0:1]:k}
+
+/* ================= utilities ================= */
+function toast(m){var e=$('toast');e.textContent=m;e.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(function(){e.style.display='none'},3000)}
+function inr(n){return '₹'+(Number(n)||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function p2(n){return (n<10?'0':'')+n}
+function today(){var d=new Date();return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
+function find(id){return recs.filter(function(r){return r.id===id})[0]}
+
+/* ================= storage (IndexedDB, big photos ok) ================= */
+var DB=null;
+function idb(cb){
+  if(DB)return cb(DB);
+  try{var rq=indexedDB.open('msh_db',1);
+    rq.onupgradeneeded=function(){rq.result.createObjectStore('kv')};
+    rq.onsuccess=function(){DB=rq.result;cb(DB)};
+    rq.onerror=function(){cb(null)};
+  }catch(e){cb(null)}
+}
+function persist(done){
+  idb(function(db){
+    if(!db){try{localStorage.setItem(LS,JSON.stringify(recs));done&&done(true)}catch(e){toast(t('tStoreFull'));done&&done(false)}return}
+    try{
+      var tx=db.transaction('kv','readwrite');tx.objectStore('kv').put(recs,'recs');
+      tx.oncomplete=function(){done&&done(true)};
+      tx.onerror=tx.onabort=function(){toast(t('tStoreFull'));done&&done(false)};
+    }catch(e){toast(t('tStoreFull'));done&&done(false)}
+  });
+}
+function load(cb){
+  function fromLS(){try{recs=JSON.parse(localStorage.getItem(LS)||'[]')}catch(e){recs=[]}}
+  idb(function(db){
+    if(!db){fromLS();return cb()}
+    var rq=db.transaction('kv').objectStore('kv').get('recs');
+    rq.onsuccess=function(){
+      if(rq.result){recs=rq.result}
+      else{fromLS();if(recs.length)persist()}   // old localStorage data migrate
+      cb();
+    };
+    rq.onerror=function(){fromLS();cb()};
+  });
+}
+
+/* ================= language & tabs ================= */
+function applyLang(){
+  var i=lang==='hi'?0:1;
+  document.documentElement.lang=lang==='hi'?'hi':'en';
+  document.querySelectorAll('[data-t]').forEach(function(e){var v=D[e.getAttribute('data-t')];if(v)e.innerHTML=v[i]});
+  document.querySelectorAll('[data-p]').forEach(function(e){var v=D[e.getAttribute('data-p')];if(v)e.placeholder=v[i]});
+  applyShopText();drawPhotos();fillSel();
+  if($('t2').classList.contains('on'))renderRecs();
+}
+function toggleLang(){lang=lang==='hi'?'en':'hi';localStorage.setItem('msh_lang',lang);applyLang()}
+function go(n){
+  for(var i=1;i<=5;i++){$('t'+i).classList.toggle('on',i===n);document.querySelectorAll('nav button')[i-1].classList.toggle('on',i===n)}
+  if(n===2)renderRecs();if(n===3)fillSel();window.scrollTo(0,0);
+}
+
+/* ================= form builders ================= */
+function mkChips(id,arr,target){var c=$(id);arr.forEach(function(v){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=v;b.onclick=function(){$(target).value=v};c.appendChild(b)})}
+function payBoxHTML(p){return PAYS.map(function(x){return '<label class="tick"><input type="checkbox" id="'+p+'_'+x[0]+'"><span data-t="'+x[1]+'"></span></label>'}).join('')}
+function pays(p){return PAYS.filter(function(x){return $(p+'_'+x[0]).checked}).map(function(x){return x[0]})}
+function setPays(p,arr){PAYS.forEach(function(x){$(p+'_'+x[0]).checked=(arr||[]).indexOf(x[0])>=0})}
+function buildGW(){
+  $('gwBox').innerHTML='<div class="gwh"><span></span><span data-t="gwG"></span><span data-t="gwW"></span><span data-t="gwP"></span></div>'+
+  GW.map(function(g){var k=g[0];
+    return '<div class="gwr"><span class="gn">'+(k==='other'?'<input type="text" id="gw_other_n" data-p="gwOtherPh">':'<span data-t="'+g[1]+'"></span>')+'</span>'+
+    '<span class="c"><input type="checkbox" id="gw_'+k+'_g"></span><span class="c"><input type="checkbox" id="gw_'+k+'_w"></span>'+
+    '<input type="text" id="gw_'+k+'_p" data-p="gwPeriodPh"></div>'}).join('');
+}
+function getGW(){return GW.map(function(g){var k=g[0];return{k:k,g:$('gw_'+k+'_g').checked,w:$('gw_'+k+'_w').checked,p:$('gw_'+k+'_p').value.trim(),n:k==='other'?$('gw_other_n').value.trim():''}})}
+function setGW(arr){var m={};(arr||[]).forEach(function(x){m[x.k]=x});GW.forEach(function(g){var k=g[0],x=m[k]||{};$('gw_'+k+'_g').checked=!!x.g;$('gw_'+k+'_w').checked=!!x.w;$('gw_'+k+'_p').value=x.p||'';if(k==='other')$('gw_other_n').value=x.n||''})}
+function dateTick(chk,inp){var c=$(chk),i=$(inp);i.disabled=c.checked;if(c.checked)i.value='';else if(!i.value)i.value=today()}
+
+/* ================= finance calc ================= */
+function calc(){var tt=+$('ctotal').value||0,f=+$('cfin').value||0,n=+$('cemin').value||0;$('cdp').textContent=inr(Math.max(tt-f,0));
+  if(f>0&&n>0&&!$('cemi').dataset.manual)$('cemi').value=Math.round(f/n)}
+function kcalc(){var tt=+$('ktotal').value||0,f=+$('kfin').value||0,n=+$('kemin').value||0;$('kdp').textContent=inr(Math.max(tt-f,0));
+  if(f>0&&n>0&&!$('kemi').dataset.manual)$('kemi').value=Math.round(f/n)}
+$('cemi').addEventListener('input',function(){this.dataset.manual='1'});
+$('kemi').addEventListener('input',function(){this.dataset.manual='1'});
+
+/* ================= photos ================= */
+function drawPhotos(){
+  var d=[['cust','phCust','👤'],['veh','phVeh','📄'],['bat','phBat','🔋']];
+  $('photoBox').innerHTML=d.map(function(p){var k=p[0];
+    return '<div class="ph"><div>'+t(p[1])+'</div><div class="box">'+(photos[k]?'<img src="'+photos[k]+'">':'<div>'+p[2]+'<br>'+t('noPhoto')+'</div>')+'</div>'+
+    '<div class="b"><label class="pb">📷<input type="file" accept="image/*" capture="environment" onchange="onFile(event,\''+k+'\')"></label>'+
+    '<label class="pb">🖼️<input type="file" accept="image/*" onchange="onFile(event,\''+k+'\')"></label>'+
+    (photos[k]?'<span class="pb" onclick="rmPhoto(\''+k+'\')">✖</span>':'')+'</div></div>'}).join('');
+}
+function rmPhoto(k){photos[k]='';drawPhotos()}
+function onFile(e,k){
+  var inp=e.target,f=inp.files&&inp.files[0];if(!f)return;
+  var url=URL.createObjectURL(f),im=new Image();
+  im.onload=function(){
+    try{var m=800,s=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');
+      c.width=Math.max(1,Math.round(im.width*s));c.height=Math.max(1,Math.round(im.height*s));
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      photos[k]=c.toDataURL('image/jpeg',.65);
+    }catch(x){toast(t('tPhotoErr'))}
+    URL.revokeObjectURL(url);drawPhotos();
+  };
+  im.onerror=function(){URL.revokeObjectURL(url);inp.value='';toast(t('tPhotoErr'))};
+  im.src=url;
+}
+
+/* ================= save / reset / edit ================= */
+function resetForm(){
+  ['editId','cname','cfather','cphone','caadhaar','cmodel','cveh','cchassis','cbat','ctotal','cfin','cemin','cemi'].forEach(function(i){$(i).value=''});
+  $('cemi').dataset.manual='';
+  $('ccharger').value='15A Smart EV Auto-Cut Charger';$('cagency').value=S.shop+' E-Rickshaw Agency';
+  $('cdateblank').checked=false;$('cdate').disabled=false;$('cdate').value=today();
+  setPays('m',[]);setGW([]);photos={cust:'',veh:'',bat:''};drawPhotos();calc();
+}
+function saveBill(){
+  var some=[$('cname').value,$('cfather').value,$('cphone').value,$('cmodel').value,$('cveh').value,$('ctotal').value].join('').trim();
+  if(!some){toast(t('tNeedSome'));return}
+  var id=$('editId').value||('r'+Date.now()+Math.random().toString(36).slice(2,6));
+  var r={id:id,name:$('cname').value.trim(),father:$('cfather').value.trim(),phone:$('cphone').value.trim(),aadhaar:$('caadhaar').value.trim(),
+    model:$('cmodel').value.trim(),veh:$('cveh').value.trim(),date:$('cdateblank').checked?'':$('cdate').value,chassis:$('cchassis').value.trim(),
+    bat:$('cbat').value.trim(),charger:$('ccharger').value.trim(),pay:pays('m'),gw:getGW(),
+    total:+$('ctotal').value||0,fin:+$('cfin').value||0,emiN:+$('cemin').value||0,emi:+$('cemi').value||0,agency:$('cagency').value.trim(),
+    photos:photos,updated:Date.now()};
+  var i=recs.findIndex(function(x){return x.id===id});if(i>=0)recs[i]=r;else recs.unshift(r);
+  persist(function(ok){if(ok){toast(t('tSaved'));showSlip(r.id);resetForm()}});
+}
+function editRec(id){
+  var r=find(id);if(!r)return;
+  $('editId').value=r.id;$('cname').value=r.name||'';$('cfather').value=r.father||'';$('cphone').value=r.phone||'';$('caadhaar').value=r.aadhaar||'';
+  $('cmodel').value=r.model||'';$('cveh').value=r.veh||'';$('cdateblank').checked=!r.date;$('cdate').disabled=!r.date;$('cdate').value=r.date||'';
+  $('cchassis').value=r.chassis||'';$('cbat').value=r.bat||'';$('ccharger').value=r.charger||'';
+  $('ctotal').value=r.total||'';$('cfin').value=r.fin||'';$('cemin').value=r.emiN||'';$('cemi').value=r.emi||'';$('cemi').dataset.manual='1';
+  $('cagency').value=r.agency||'';setPays('m',r.pay);setGW(r.gw);
+  photos={cust:(r.photos&&r.photos.cust)||'',veh:(r.photos&&r.photos.veh)||'',bat:(r.photos&&r.photos.bat)||''};
+  drawPhotos();calc();go(1);
+}
+
+/* ================= records ================= */
+var GWKEY={};GW.forEach(function(g){GWKEY[g[0]]=g[1]});
+function payTxt(a){var m={};PAYS.forEach(function(x){m[x[0]]=t(x[1])});return (a||[]).map(function(k){return '✔ '+m[k]}).join(' &nbsp; ')}
+function gwTxt(r){return (r.gw||[]).filter(function(x){return x.g||x.w}).map(function(x){
+  var nm=x.k==='other'?(x.n||t('gwOther')):t(GWKEY[x.k]);
+  return esc(nm)+' ('+[x.g?t('gwG'):'',x.w?t('gwW'):''].filter(Boolean).join('+')+(x.p?' '+esc(x.p):'')+')'}).join(', ')}
+function renderRecs(){
+  var q=$('q').value.toLowerCase().trim();
+  var list=recs.filter(function(r){return !q||[r.name,r.father,r.phone,r.aadhaar,r.chassis,r.veh,r.model].join(' ').toLowerCase().indexOf(q)>=0});
+  $('sCnt').textContent=recs.length+' EV';
+  $('sTot').textContent=inr(recs.reduce(function(a,r){return a+(r.total||0)},0));
+  $('sFin').textContent=inr(recs.reduce(function(a,r){return a+(r.fin||0)},0));
+  $('recList').innerHTML=list.length?list.map(function(r){
+    var g=gwTxt(r),p=payTxt(r.pay);
+    return '<div class="rec"><div class="top"><div class="av">'+esc(((r.name||'?')[0]||'?').toUpperCase())+'</div><div><div class="nm">'+esc(r.name||'—')+'</div>'+
+    (r.father?'<div style="font-size:12px;color:var(--mut)">'+t('lFather')+': '+esc(r.father)+'</div>':'')+
+    '<div class="md">🛺 '+esc(r.model)+(r.veh?' • '+esc(r.veh):'')+'</div></div><div class="dt">'+esc(r.date)+'</div></div>'+
+    '<div class="in">📞 '+esc(r.phone)+' | 🆔 '+esc(r.aadhaar)+'<br>🔧 '+esc(r.chassis)+'<br>🔋 '+esc(r.bat)+(g?'<br>🛡️ '+g:'')+(p?'<br>'+p:'')+
+    '<br>💰 '+t('sTotal')+': <b>'+inr(r.total)+'</b> | '+t('sFinance')+': '+inr(r.fin)+' | '+t('sDown')+': '+inr((r.total||0)-(r.fin||0))+
+    '<br>'+t('sKist')+': '+(r.emiN||0)+' x ₹'+(r.emi||0)+' '+t('sMonth')+'</div>'+
+    '<div class="act"><button onclick="shareRec(\''+r.id+'\')">'+t('rShare')+'</button><button onclick="showSlip(\''+r.id+'\')">'+t('rSlip')+'</button><button onclick="kFromRec(\''+r.id+'\')">'+t('rKist')+'</button><button onclick="editRec(\''+r.id+'\')">'+t('rEdit')+'</button><button style="color:#f87171" onclick="delRec(\''+r.id+'\')">'+t('rDel')+'</button></div></div>'
+  }).join(''):'<div class="foot">'+t('noRec')+'</div>';
+}
+function delRec(id){if(confirm(t('delAsk'))){recs=recs.filter(function(r){return r.id!==id});persist(function(){renderRecs()})}}
+function recText(r){
+  var m={};PAYS.forEach(function(x){m[x[0]]=t(x[1])});
+  var pay=(r.pay||[]).map(function(k){return m[k]}).join(', ');
+  var g=gwTxt(r).replace(/<[^>]+>/g,'');
+  return '*'+shopName().toUpperCase()+'*\n'+t('shMsg')+'\n\n'+t('sCust')+': '+(r.name||'')+'\n'+t('sFather')+': '+(r.father||'')+'\n'+t('sPhone')+': '+(r.phone||'')+'\n'+t('sAadhaar')+': '+(r.aadhaar||'')+
+  '\n'+t('sModel')+': '+(r.model||'')+'\n'+t('sVeh')+': '+(r.veh||'')+'\n'+t('sChassis')+': '+(r.chassis||'')+'\n'+t('sBat')+': '+(r.bat||'')+'\n'+t('sCharger')+': '+(r.charger||'')+
+  (g?'\n'+t('sGWT')+': '+g:'')+(pay?'\n'+t('sPayT')+': '+pay:'')+'\n'+t('sDate')+': '+(r.date||'')+
+  '\n\n'+t('sTotal')+': '+inr(r.total)+'\n'+t('sFinance')+': '+inr(r.fin)+'\n'+t('sDown')+': '+inr((r.total||0)-(r.fin||0))+'\n'+t('sKist')+': '+(r.emiN||0)+' x ₹'+(r.emi||0)+' '+t('sMonth')+'\n\n'+[S.o1p,S.o2p].filter(Boolean).join(' / ');
+}
+function shareRec(id){var r=find(id);if(!r)return;var tx=recText(r);
+  if(navigator.share)navigator.share({text:tx}).catch(function(){});
+  else window.open('https://wa.me/'+(r.phone?'91'+r.phone:'')+'?text='+encodeURIComponent(tx),'_blank')}
+
+/* ================= slips ================= */
+function V(x){return x?esc(x):'&nbsp;'}
+function FD(d){if(!d)return '&nbsp;';var p=d.split('-');return p.length===3?p[2]+'-'+p[1]+'-'+p[0]:esc(d)}
+function box(on){return on?'☑':'☐'}
+function payLine(a){a=a||[];return PAYS.map(function(x){return box(a.indexOf(x[0])>=0)+' '+t(x[1])}).join(' &nbsp;&nbsp; ')}
+function ownLine(){return [[S.o1n,S.o1p],[S.o2n,S.o2p]].filter(function(x){return x[0]||x[1]}).map(function(x){return esc(x[0])+(x[0]&&x[1]?': ':'')+esc(x[1])}).join(' | ')}
+function head(title){return '<h2>'+esc(shopName().toUpperCase())+'</h2><p class="c">'+t('sub')+'<br>'+ownLine()+'</p><h3 style="text-align:center;margin:6px 0">'+title+'</h3>'}
+function row(a,b){return '<tr><td class="k">'+a+'</td><td>'+b+'</td></tr>'}
+function foot(){return '<div class="sg"><span>'+t('sSignCust')+'</span><span>'+esc(shopName())+'</span></div>'}
+function slipHTML(r){
+  var ph=r.photos||{};
+  var ims=[ph.cust,ph.veh,ph.bat].filter(Boolean).map(function(s){return '<img src="'+s+'">'}).join('');
+  var gm={};(r.gw||[]).forEach(function(x){gm[x.k]=x});
+  var gr=GW.map(function(g){var k=g[0],x=gm[k]||{};var nm=k==='other'?V(x.n):t(g[1]);
+    return '<tr><td>'+nm+'</td><td class="ck">'+box(x.g)+'</td><td class="ck">'+box(x.w)+'</td><td>'+V(x.p)+'</td></tr>'}).join('');
+  var dp=(r.total||r.fin)?inr((r.total||0)-(r.fin||0)):'&nbsp;';
+  return '<div class="slip">'+head(t('sTitle'))+'<table>'+
+    row(t('sDate'),FD(r.date))+row(t('sCust'),V(r.name))+row(t('sFather'),V(r.father))+row(t('sPhone'),V(r.phone))+row(t('sAadhaar'),V(r.aadhaar))+
+    row(t('sModel'),V(r.model))+row(t('sVeh'),V(r.veh))+row(t('sChassis'),V(r.chassis))+row(t('sBat'),V(r.bat))+row(t('sCharger'),V(r.charger))+
+    row(t('sPayT'),payLine(r.pay))+row(t('sTotal'),r.total?inr(r.total):'&nbsp;')+row(t('sFinance'),r.fin?inr(r.fin):'&nbsp;')+row(t('sDown'),dp)+
+    row(t('sKist'),(r.emiN||r.emi)?(r.emiN||0)+' x ₹'+(r.emi||0)+' '+t('sMonth'):'&nbsp;')+row(t('sAgency'),V(r.agency))+'</table>'+
+    '<h4>'+t('sGWT')+'</h4><table><tr><th>'+t('gwPart')+'</th><th>'+t('gwG')+'</th><th>'+t('gwW')+'</th><th>'+t('gwP')+'</th></tr>'+gr+'</table>'+
+    (ims?'<div class="ims">'+ims+'</div>':'')+foot()+'</div>';
+}
+function addMonth(iso,i){
+  var p=(iso||'').split('-').map(Number);if(p.length<3||!p[0])return '';
+  var dt=new Date(p[0],p[1]-1+i,1),last=new Date(dt.getFullYear(),dt.getMonth()+1,0).getDate();
+  return p2(Math.min(p[2],last))+'-'+p2(dt.getMonth()+1)+'-'+dt.getFullYear();
+}
+function kistHTML(d){
+  var amt=d.emi||((d.fin&&d.emiN)?Math.round(d.fin/d.emiN):0);
+  var n=parseInt(d.rows)||d.emiN||12;n=Math.min(Math.max(n,1),60);
+  var tr='';
+  for(var i=0;i<n;i++){
+    var dt=(!d.bd&&d.first)?addMonth(d.first,i):'';
+    tr+='<tr><td class="ck" style="font-size:13px">'+(i+1)+'</td><td>'+(dt||'&nbsp;')+'</td><td>&nbsp;</td><td>'+((!d.ba&&amt)?inr(amt):'&nbsp;')+'</td><td>&nbsp;</td></tr>';
+  }
+  var dp=(d.total||d.fin)?inr((d.total||0)-(d.fin||0)):'&nbsp;';
+  return '<div class="slip">'+head(t('kSlipTitle'))+'<table>'+
+    row(t('sDate'),FD(d.date))+row(t('sCust'),V(d.name))+row(t('sFather'),V(d.father))+row(t('sPhone'),V(d.phone))+
+    row(t('sVeh'),V(d.veh))+row(t('sModel'),V(d.model))+row(t('sPayT'),payLine(d.pay))+
+    row(t('sTotal'),d.total?inr(d.total):'&nbsp;')+row(t('sFinance'),d.fin?inr(d.fin):'&nbsp;')+row(t('sDown'),dp)+
+    row(t('sKist'),(d.emiN||amt)?(d.emiN||0)+' x ₹'+(amt||0)+' '+t('sMonth'):'&nbsp;')+row(t('kRem'),V(d.remark))+'</table>'+
+    '<table><tr><th style="width:9%">'+t('kNo')+'</th><th>'+t('kDateC')+'</th><th>'+t('kNameC')+'</th><th>'+t('kAmtC')+'</th><th>'+t('kSignC')+'</th></tr>'+tr+'</table>'+
+    '<table>'+row(t('kPaid'),'&nbsp;')+row(t('kBal'),'&nbsp;')+'</table>'+foot()+'</div>';
+}
+function showHTML(h,rid){
+  $('slide').innerHTML=h+'<div class="nop"><button onclick="window.print()">'+t('bPrint')+'</button>'+
+    (rid?'<button style="background:#16a34a" onclick="shareRec(\''+rid+'\')">➤ WhatsApp</button>':'')+
+    '<button style="background:#555" onclick="closeSlip()">'+t('bClose')+'</button></div>';
+  $('slide').style.display='block';$('slide').scrollTop=0;
+}
+function closeSlip(){$('slide').style.display='none'}
+function showSlip(id){var r=find(id);if(r)showHTML(slipHTML(r),id)}
+
+/* ================= kist slip page ================= */
+function kData(){
+  return{date:$('kdateblank').checked?'':$('kdate').value,name:$('kname').value.trim(),father:$('kfather').value.trim(),phone:$('kphone').value.trim(),
+    veh:$('kveh').value.trim(),model:$('kmodel').value.trim(),pay:pays('k'),total:+$('ktotal').value||0,fin:+$('kfin').value||0,
+    emiN:+$('kemin').value||0,emi:+$('kemi').value||0,first:$('kfirst').value,rows:$('krows').value,bd:$('kbd').checked,ba:$('kba').checked,remark:$('kremark').value.trim()};
+}
+function kMake(){showHTML(kistHTML(kData()))}
+function kBlank(){showHTML(kistHTML({rows:12,bd:true,ba:true,pay:[]}))}
+function kReset(){
+  ['kname','kfather','kphone','kveh','kmodel','ktotal','kfin','kemin','kemi','krows','kfirst','kremark'].forEach(function(i){$(i).value=''});
+  $('kemi').dataset.manual='';$('kdateblank').checked=false;$('kdate').disabled=false;$('kdate').value=today();
+  $('kbd').checked=true;$('kba').checked=false;setPays('k',[]);$('kSel').value='';kcalc();
+}
+function fillSel(){
+  var s=$('kSel'),cur=s.value;
+  s.innerHTML='<option value="">'+t('kPick')+'</option>'+recs.map(function(r){return '<option value="'+esc(r.id)+'">'+esc(r.name||'—')+(r.veh?' • '+esc(r.veh):'')+'</option>'}).join('');
+  s.value=cur;
+}
+function kFill(){
+  var r=find($('kSel').value);if(!r)return;
+  $('kname').value=r.name||'';$('kfather').value=r.father||'';$('kphone').value=r.phone||'';$('kveh').value=r.veh||'';$('kmodel').value=r.model||'';
+  setPays('k',r.pay);$('ktotal').value=r.total||'';$('kfin').value=r.fin||'';$('kemin').value=r.emiN||'';$('kemi').value=r.emi||'';$('kemi').dataset.manual='1';
+  $('krows').value=r.emiN||'';kcalc();
+}
+function kFromRec(id){go(3);$('kSel').value=id;kFill()}
+
+/* ================= sync ================= */
+function merge(inc){
+  var a=0,u=0;
+  inc.forEach(function(n){if(!n||!n.id)return;var i=recs.findIndex(function(x){return x.id===n.id});
+    if(i<0){recs.push(n);a++}else if((n.updated||0)>(recs[i].updated||0)){recs[i]=n;u++}});
+  recs.sort(function(x,y){return(y.updated||0)-(x.updated||0)});
+  persist();renderRecs();fillSel();
+  return a+t('tNew')+u+t('tUpd');
+}
+function exportData(){
+  if(!recs.length){toast(t('tNoData'));return}
+  var name='MSH_Backup_'+today()+'.json',blob=new Blob([JSON.stringify({app:'msh',v:2,records:recs})],{type:'application/json'}),file;
+  try{file=new File([blob],name,{type:'application/json'})}catch(e){}
+  if(file&&navigator.canShare&&navigator.canShare({files:[file]}))navigator.share({files:[file],title:'MS Husaini Backup'}).catch(function(){});
+  else{var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();toast(t('tFileDl'))}
+}
+$('impFile').onchange=function(e){
+  var f=e.target.files[0];e.target.value='';if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){try{var d=JSON.parse(r.result);toast('✅ '+merge(d.records||d))}catch(x){toast(t('tBadFile'))}};
+  r.readAsText(f);
+};
+$('gurl').value=localStorage.getItem('msh_gurl')||'';
+function cloudSync(){
+  var u=$('gurl').value.trim();
+  if(!/^https:\/\/script\.google\.com\//.test(u)){toast(t('tBadUrl'));return}
+  localStorage.setItem('msh_gurl',u);toast(t('tSyncing'));
+  fetch(u).then(function(r){return r.json()}).then(function(d){
+    var m=merge(d.records||[]);
+    return fetch(u,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({records:recs})}).then(function(){toast(t('tSyncOk')+m)});
+  }).catch(function(){toast(t('tSyncFail'))});
+}
+function copyScript(){
+  var s="var SH='MSH_DATA';\nfunction sheet(){var ss=SpreadsheetApp.getActiveSpreadsheet();return ss.getSheetByName(SH)||ss.insertSheet(SH)}\nfunction doGet(){var v=sheet().getRange('A1').getValue();return ContentService.createTextOutput(v||'{\"records\":[]}').setMimeType(ContentService.MimeType.JSON)}\nfunction doPost(e){var cur=JSON.parse(sheet().getRange('A1').getValue()||'{\"records\":[]}').records,inc=JSON.parse(e.postData.contents).records,m={};\ncur.concat(inc).forEach(function(r){if(!m[r.id]||(r.updated||0)>(m[r.id].updated||0))m[r.id]=r});\nsheet().getRange('A1').setValue(JSON.stringify({records:Object.keys(m).map(function(k){return m[k]})}));\nreturn ContentService.createTextOutput('ok')}";
+  if(navigator.clipboard)navigator.clipboard.writeText(s).then(function(){toast(t('tCopied'))},function(){prompt(t('tCopy'),s)});else prompt(t('tCopy'),s);
+}
+
+/* ================= agency / owner settings ================= */
+function shopName(){return lang==='hi'?(S.shopHi||S.shop):(S.shop||S.shopHi)}
+function ownNames(){return [S.o1n,S.o2n].filter(Boolean).join(' • ')}
+function ownPhones(){return [S.o1p,S.o2p].filter(Boolean).join(' , ')}
+function waNum(n){var d=String(n||'').replace(/\D/g,'');return d.length===10?'91'+d:d}
+function renderOwners(){
+  var o=[[S.o1n,S.o1p],[S.o2n,S.o2p]].filter(function(x){return x[0]||x[1]});
+  $('ownList').innerHTML=o.map(function(x){
+    return '<div class="own"><div class="av">'+esc(((x[0]||'?')[0]||'?').toUpperCase())+'</div><div class="n"><b>'+esc(x[0])+'</b>'+(x[1]?'📞 '+esc(x[1]):'')+'</div>'+
+    (x[1]?'<a href="tel:'+esc(x[1])+'">📞</a><a class="w" href="https://wa.me/'+waNum(x[1])+'" target="_blank">➤</a>':'')+'</div>'}).join('');
+}
+function applyShopText(){
+  var n=shopName();
+  document.querySelectorAll('.shop-title').forEach(function(e){e.textContent=n});
+  document.querySelectorAll('.shop-up').forEach(function(e){e.textContent=n.toUpperCase()});
+  document.querySelectorAll('.own-names').forEach(function(e){e.textContent=ownNames()});
+  document.querySelectorAll('.own-phones').forEach(function(e){e.textContent=ownPhones()?'📞 '+ownPhones():''});
+  document.title=n;renderOwners();
+}
+function loadSetForm(){$('ag_shop').value=S.shop;$('ag_shopHi').value=S.shopHi;$('ag_o1n').value=S.o1n;$('ag_o1p').value=S.o1p;$('ag_o2n').value=S.o2n;$('ag_o2p').value=S.o2p}
+function saveSettings(){
+  S={shop:$('ag_shop').value.trim(),shopHi:$('ag_shopHi').value.trim(),o1n:$('ag_o1n').value.trim(),o1p:$('ag_o1p').value.replace(/\s/g,''),o2n:$('ag_o2n').value.trim(),o2p:$('ag_o2p').value.replace(/\s/g,'')};
+  if(!S.shop&&!S.shopHi){S.shop=DEF.shop;S.shopHi=DEF.shopHi}
+  try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}
+  loadSetForm();applyShopText();toast(t('stSaved'));
+}
+function resetSettings(){S=Object.assign({},DEF);try{localStorage.removeItem(SK)}catch(e){}loadSetForm();applyShopText();toast(t('stSaved'))}
+
+/* ================= init ================= */
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){navigator.serviceWorker.register('./sw.js').catch(function(){})}
+if(navigator.storage&&navigator.storage.persist){try{navigator.storage.persist()}catch(e){}}
+$('payBox').innerHTML=payBoxHTML('m');$('kPayBox').innerHTML=payBoxHTML('k');
+buildGW();mkChips('modelChips',MODELS,'cmodel');mkChips('batChips',BATS,'cbat');
+resetForm();kReset();applyLang();loadSetForm();
+load(function(){fillSel();if($('t2').classList.contains('on'))renderRecs()});
+</script>
+</body>
+</html>
